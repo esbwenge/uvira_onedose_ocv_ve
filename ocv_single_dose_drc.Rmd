@@ -699,7 +699,7 @@ regress_unadj_match_ageint <- function(df,ocv){
   
   if("wealth_centered" %in% colnames(df)) {
 
-  formula <- as.formula(paste0(outcome, "~ vac + vac_u5 + o5_numeric:poly(age_vac_O5_centered, 2, raw = TRUE) + u5_numeric:age_vac_u5_centered + poly(n_hh_centered, 3, raw = TRUE) + wealth_centered", "+", paste(confounders, collapse = "+"), "+", "strata(id_case)"))
+  formula <- as.formula(paste0(outcome, "~ vac + vac_u5 + o5_numeric:poly(age_vac_O5_centered, 2, raw = TRUE) + u5_numeric:age_vac_u5_centered + rcs(n_hh_centered, 4) + wealth_centered", "+", paste(confounders, collapse = "+"), "+", "strata(id_case)"))
 
    }else{
 
